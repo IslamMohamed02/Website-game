@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body onload="showData()">
+    <h2>Troops Training</h2>
+    <h4>barracks</h4>
+    <br />
+    <div class="row">
+      <div class="col-md-2 player-Info">
+        <h3>Available resources</h3>
+        <h4>Wood: 100</h4>
+        <h4>iron: 50</h4>
+        <h4>food: 70</h4>
+        <h3>Available troops</h3>
+        <h4>Archer: 10</h4>
+        <h4>Warrior: 20</h4>
+      </div>
+      <div class="col-md-7">
+        <div class="troop Archer">
+          <div class="row">
+            <div class="col-md-4 archerData"></div>
+            <div class="col-md-4 troopCount">
+              <button onclick="manageUnitsNumber(1, 'decButton', 'archer')" type="button" class="btn btn-info decButton">
+                <span class="material-icons"> remove_circle </span>
+              </button>
+              <input
+                type="text"
+                name="number"
+                autocomplete="off"
+                value="0"
+                onchange="manageUnitsNumber(this.value, 'input', 'archer')"
+                class="archerInputArea"
+              />
+              <button
+                onclick="summon('archer'); manageUnitsNumber(1, 'incButton', 'archer')"
+                type="button"
+                class="btn btn-info incButton"
+              >
+                <span class="material-icons"> add_circle </span>
+              </button>
+              <p class="archerCost"></p>
+              <div class="progress">
+                <div class="progress-bar bg-info archerBar" style="width: 0%"></div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <h3>Total power</h3>
+              <p class="archerPower">50</p>
+            </div>
+          </div>
+        </div>
+        <div class="troop Warrior">
+          <div class="row">
+            <div class="col-md-4 warriorData"></div>
+            <div class="col-md-4 troopCount">
+              <button onclick="manageUnitsNumber(1, 'decButton', 'warrior')" type="button" class="btn btn-info decButton">
+                <span class="material-icons"> remove_circle </span>
+              </button>
+              <input
+                type="text"
+                name="number"
+                autocomplete="off"
+                value="0"
+                onchange="manageUnitsNumber(this.value, 'input', 'warrior')"
+                class="warriorInputArea"
+              />
+              <button
+                onclick="summon('warrior');manageUnitsNumber(1, 'incButton', 'warrior')"
+                type="button"
+                class="btn btn-info incButton"
+              >
+                <span class="material-icons"> add_circle </span>
+              </button>
+              <p class="warriorCost"></p>
+              <div class="progress">
+                <div class="progress-bar bg-info warriorBar" style="width: 0%"></div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <h3>Total power</h3>
+              <p class="warriorPower">80</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2 troops-Summon-Info">
+        <h3>Requested Troops</h3>
+        <h4>Archer: 100<br>Warriors: 50</h4>
+        <h3>Total material required</h3>
+        <h4 class="totalCost">wood: 10<br>iron: 20<br>food: 20</h4>
+      </div>
+    </div>
+
+    <script src="./java.js"></script>
+  </body>
+</html>
